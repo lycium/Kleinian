@@ -4,10 +4,30 @@
     <Filter Include="src">
       <UniqueIdentifier>{9702fd39-9fa2-44bc-a385-c9110a42795f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\maths">
+      <UniqueIdentifier>{684cc7ba-1864-408d-a8c8-ef9b27c81c82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\maths\Dual.h">
+      <Filter>src\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\maths\real.h">
+      <Filter>src\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\maths\vec.h">
+      <Filter>src\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\maths\Complex.h">
+      <Filter>src\maths</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\maths\Moebius.h">
+      <Filter>src\maths</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
