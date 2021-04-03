@@ -50,12 +50,12 @@ struct vec
 	}
 
 	// xyz accessors enabled only if dimensions are present
-	template<std::enable_if_t<(n > 0), int> = 0> constexpr real_type & x() noexcept { return e[0]; }
-	template<std::enable_if_t<(n > 1), int> = 0> constexpr real_type & y() noexcept { return e[1]; }
-	template<std::enable_if_t<(n > 2), int> = 0> constexpr real_type & z() noexcept { return e[2]; }
-	template<std::enable_if_t<(n > 0), int> = 0> constexpr const real_type & x() const noexcept { return e[0]; }
-	template<std::enable_if_t<(n > 1), int> = 0> constexpr const real_type & y() const noexcept { return e[1]; }
-	template<std::enable_if_t<(n > 2), int> = 0> constexpr const real_type & z() const noexcept { return e[2]; }
+	//template<std::enable_if_t<(n > 0), int> = 0> constexpr real_type & x() noexcept { return e[0]; }
+	//template<std::enable_if_t<(n > 1), int> = 0> constexpr real_type & y() noexcept { return e[1]; }
+	//template<std::enable_if_t<(n > 2), int> = 0> constexpr real_type & z() noexcept { return e[2]; }
+	//template<std::enable_if_t<(n > 0), int> = 0> constexpr const real_type & x() const noexcept { return e[0]; }
+	//template<std::enable_if_t<(n > 1), int> = 0> constexpr const real_type & y() const noexcept { return e[1]; }
+	//template<std::enable_if_t<(n > 2), int> = 0> constexpr const real_type & z() const noexcept { return e[2]; }
 };
 
 
@@ -140,3 +140,5 @@ using vec3d = vec<3, double>;
 using DualVec3r = vec<3, Dual3r>;
 using DualVec3f = vec<3, Dual3f>;
 using DualVec3d = vec<3, Dual3d>;
+
+using vec4f = vec<4, float>;

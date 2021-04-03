@@ -1,7 +1,7 @@
 #pragma once
 
-#include "maths/real.h"
-#include "maths/Dual.h"
+#include "real.h"
+#include "Dual.h"
 #include <math.h>
 
 
@@ -14,7 +14,7 @@ struct Complex
 
 	constexpr Complex() noexcept { }
 	constexpr Complex(const Complex & v) noexcept { for (int i = 0; i < 2; ++i) ri[i] = v.ri[i]; }
-	constexpr Complex(const real_type & v) noexcept { for (int i = 0; i < 2; ++i) ri[i] = v; }
+	constexpr Complex(const real_type & v) noexcept { ri[0] = v; ri[1] = 0; }
 
 	// Some brutal C++ hackery to enable initializer lists
 	template<typename val, typename... vals, std::enable_if_t<(sizeof...(vals) > 0), int> = 0>

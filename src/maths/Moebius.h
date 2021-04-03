@@ -1,8 +1,8 @@
 #pragma once
 
-#include "maths/real.h"
-#include "maths/Dual.h"
-#include "maths/Complex.h"
+#include "real.h"
+#include "Dual.h"
+#include "Complex.h"
 
 
 
@@ -22,14 +22,15 @@ struct Moebius
 	// Matrix multiplication
 	Moebius operator*(const Moebius & rhs) const noexcept
 	{
-		Moebius m;
-		m.a = a * rhs.a + b * rhs.c;
-        m.b = a * rhs.b + b * rhs.d;
-        m.c = c * rhs.a + d * rhs.c;
-        m.d = c * rhs.b + d * rhs.d;
-		return m;
+		return Moebius(
+			a * rhs.a + b * rhs.c,
+			a * rhs.b + b * rhs.d,
+			c * rhs.a + d * rhs.c,
+			c * rhs.b + d * rhs.d);
 	}
 
+
+	Moebius inverse() const noexcept { return Moebius(a, -b, -c, d); }
 
 	static Moebius ident() noexcept { return Moebius(complex_type(1), complex_type(0), complex_type(0), complex_type(1)); }
 
@@ -37,6 +38,13 @@ struct Moebius
 	{
 		const complex_type num = a * z + b;
 		const complex_type den = c * z + d;
+		return num / den;
+	}
+
+	complex_type applyInverse(const complex_type & z) const noexcept
+	{
+		const complex_type num = a * z - b;
+		const complex_type den = d - c * z;
 		return num / den;
 	}
 };

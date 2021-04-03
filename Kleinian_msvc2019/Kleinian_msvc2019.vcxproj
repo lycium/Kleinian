@@ -86,6 +86,8 @@
     <ClInclude Include="..\src\maths\Moebius.h" />
     <ClInclude Include="..\src\maths\real.h" />
     <ClInclude Include="..\src\maths\vec.h" />
+    <ClInclude Include="..\src\util\pcg32.h" />
+    <ClInclude Include="..\src\util\stb_image_write.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
