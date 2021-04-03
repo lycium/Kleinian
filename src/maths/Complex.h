@@ -15,10 +15,7 @@ struct Complex
 	constexpr Complex() noexcept { }
 	constexpr Complex(const Complex & v) noexcept { for (int i = 0; i < 2; ++i) ri[i] = v.ri[i]; }
 	constexpr Complex(const real_type & v) noexcept { ri[0] = v; ri[1] = 0; }
-
-	// Some brutal C++ hackery to enable initializer lists
-	template<typename val, typename... vals, std::enable_if_t<(sizeof...(vals) > 0), int> = 0>
-	constexpr Complex(const val v, const vals... vs) noexcept : ri { (real_type)v, (real_type)vs... } { }
+	constexpr Complex(const real_type & r, const real_type & i) noexcept { ri[0] = r; ri[1] = i; }
 
 	constexpr Complex operator+(const Complex & rhs) const noexcept { Complex r; for (int i = 0; i < 2; ++i) r.ri[i] = ri[i] + rhs.ri[i]; return r; }
 	constexpr Complex operator-(const Complex & rhs) const noexcept { Complex r; for (int i = 0; i < 2; ++i) r.ri[i] = ri[i] - rhs.ri[i]; return r; }
@@ -39,7 +36,7 @@ struct Complex
 		return Complex(r, i) * (1 / rhs.length2());
 	}
 
-	constexpr Complex operator-() const noexcept { Complex r; for (int i = 0; i < 2; ++i) r.ri[i] = -ri[i]; return r; }
+	constexpr Complex operator-() const noexcept { return Complex(-ri[0], -ri[1]); }
 
 	constexpr const Complex & operator =(const Complex & rhs) noexcept { for (int i = 0; i < 2; ++i) ri[i]  = rhs.ri[i]; return *this; }
 	constexpr const Complex & operator+=(const Complex & rhs) noexcept { for (int i = 0; i < 2; ++i) ri[i] += rhs.ri[i]; return *this; }

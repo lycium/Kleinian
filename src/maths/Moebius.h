@@ -30,7 +30,7 @@ struct Moebius
 	}
 
 
-	Moebius inverse() const noexcept { return Moebius(a, -b, -c, d); }
+	Moebius inverse() const noexcept { return Moebius(d, -b, -c, a); }
 
 	static Moebius ident() noexcept { return Moebius(complex_type(1), complex_type(0), complex_type(0), complex_type(1)); }
 
@@ -41,12 +41,12 @@ struct Moebius
 		return num / den;
 	}
 
-	complex_type applyInverse(const complex_type & z) const noexcept
-	{
-		const complex_type num = a * z - b;
-		const complex_type den = d - c * z;
-		return num / den;
-	}
+	//complex_type applyInverse(const complex_type & z) const noexcept
+	//{
+	//	const complex_type num = a * z - b;
+	//	const complex_type den = d - c * z;
+	//	return num / den;
+	//}
 };
 
 
